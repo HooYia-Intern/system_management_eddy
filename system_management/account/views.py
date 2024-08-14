@@ -1,5 +1,6 @@
 from django.contrib.auth import authenticate, login as auth_login
 from django.shortcuts import render, redirect
+from django.contrib import messages
 
 from .models import User
 
@@ -9,13 +10,13 @@ def login(request):
         password = request.POST.get('password', '')
 
         if email and password:
-           user = authenticate(email=email, password=password)
-
-           print('User', user)
-        
-           return redirect('/')
-
-
+            user = authenticate(email=email, password=password)
+            if user is None:
+                messages.error(request, "credentials didn't matched")
+            else:
+               auth_login(request, user)
+               messages.success(request, "login successfull")
+               return redirect('/')
     return render(request, 'account/login.html')
 
 def signup(request):
