@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<h1 class="text-3xl mb-6">{{ project.name }}</h1>
+<a href="#" class="py-4 px-8 bg-sky-600 text-white rounded-2xl inline-block">Add To-Do-List</a>
+<div class="mt-6 grid grid-cols-4 gap-4">
+    {% for todolist in todolist %}
+    <div class="bg-slate-200 p-6 ">
+        <a href="#">
+        <h2 class="text-xl">{{ todolist.name }}</h2>
+        <p class="text-sm text-slate-600"> 
+            {{ todolist.description }}
+        </p>
+    </a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock%}
