@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'core',
     'account',
     'project',
+    'todolist',
 ]
 
 MIDDLEWARE = [

@@ -6,5 +6,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
     path('', include('account.urls')),
-    path('projects/', include('project.urls'))
+    path('projects/', include('project.urls')),
+    path('projects/<uuid:project_id>/', include('todolist.urls') ),
 ]
