@@ -3,6 +3,10 @@
 {% block content %}
 
 <h1 class="text-3xl mb-6">{{ project.name }}</h1>
+{% if project.description %}
+<p class="mt-6">{{  project.description }}</p>
+{% endif %}
+
 <a href="{% url 'todolist:add' project.id %}" class="py-4 px-8 bg-sky-600 text-white rounded-2xl inline-block">Add To-Do-List</a>
 <!-- <a href="" class="py-4 px-8 bg-green-600 text-white  inline-block">Mark as done</a> -->
 <a href="{% url 'project:edit' project.id %}" class="py-4 px-8 bg-sky-600 text-white  inline-block">Edit</a>
