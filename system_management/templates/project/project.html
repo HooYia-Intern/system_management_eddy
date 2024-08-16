@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<h1 class="text-3xl mb-6">{{ project.name }}</h1>
+<a href="{% url 'todolist:add' project.id %}" class="py-4 px-8 bg-sky-600 text-white rounded-2xl inline-block">Add To-Do-List</a>
+<!-- <a href="" class="py-4 px-8 bg-green-600 text-white  inline-block">Mark as done</a> -->
+<a href="{% url 'project:edit' project.id %}" class="py-4 px-8 bg-sky-600 text-white  inline-block">Edit</a>
+<a href="{% url 'project:delete' project.id %}" class="py-4 px-8 bg-red-600 text-white  inline-block">Delete</a>
+
+<div class="mt-6 grid grid-cols-4 gap-4">
+    {% for todolist in project.todolist.all %}
+    <div class="bg-slate-200 p-6 ">
+        <a href="{% url 'todolist:todolist' project.id todolist.id %}">
+        <h2 class="text-xl">{{ todolist.name }}</h2>
+        <p class="text-sm text-slate-600"> 
+            {{ todolist.description }}
+        </p>
+    </a>
+    </div>
+    {% endfor %}
+</div>
+
+{% for todo in todolists %}
+    {{ todo.description }} - {{ todo.name }}
+{% endfor %}
+
+{% endblock%}
