@@ -15,7 +15,7 @@
 <div class="mt-6 grid grid-cols-4 gap-4">
     {% for todolist in project.todolists.all %}
     <div class="bg-slate-200 p-6 ">
-        <a href="{% url 'todolist:todlist' project.id todolist.id %}">
+        <a href="{% url 'todolist:todolist' project.id todolist.id %}">
             <h2 class="text-xl">{{ todolist.name }}</h2>
             <p class="text-sm text-slate-600"> 
                 {{ todolist.description }}

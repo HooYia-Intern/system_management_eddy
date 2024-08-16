@@ -8,7 +8,7 @@
         <p>{{  todolist.description }}</p>
     {% endif %}
 
-<a href="" class="py-4 px-8 bg-sky-600 text-white rounded-2xl inline-block">Add Task</a>
+<a href="{% url 'task:add' project.id todolist.id %}" class="py-4 px-8 bg-sky-600 text-white rounded-2xl inline-block">Add Task</a>
 <!-- <a href="" class="py-4 px-8 bg-green-600 text-white  inline-block">Mark as done</a> -->
 <a href="{% url 'todolist:edit' project.id todolist.id %}" class="py-4 px-8 bg-sky-600 text-white  inline-block">Edit</a>
 <a href="{% url 'todolist:delete' project.id todolist.id %}" class="py-4 px-8 bg-red-600 text-white  inline-block">Delete</a>

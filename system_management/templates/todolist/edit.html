@@ -4,7 +4,7 @@
 
 <h1 class="text-3xl mb-6">Edit todo</h1>
 
-<form action="." method="post" class=" mt-6 space-y-4">
+<form action="{% url 'todolist:edit' project.id todolist.id %}" method="post" class=" mt-6 space-y-4">
     {% csrf_token %}
     <div>
     <label for="" class=" ">Name</label><br>
