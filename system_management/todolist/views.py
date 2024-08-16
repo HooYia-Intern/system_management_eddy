@@ -22,4 +22,6 @@ def add(request, project_id):
             return redirect(f'/projects/{project_id}/')
 
 
-    return render(request, 'todolist/add.html')
+    return render(request, 'todolist/add.html',{
+        'project': project
+    })
