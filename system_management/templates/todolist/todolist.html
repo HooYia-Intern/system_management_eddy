@@ -16,7 +16,7 @@
 <div class="mt-6 grid grid-cols-4 gap-4">
     {% for task in todolist.tasks.all %}
     <div class="bg-slate-200 p-6 ">
-        <a href="">
+        <a href="{% url 'task:detail' todolist.project.id todolist.id task.id %}">
             <h2 class="text-xl">{{ task.name }}</h2>
             <p class="text-sm text-slate-600"> 
                 {{ task.description }}
