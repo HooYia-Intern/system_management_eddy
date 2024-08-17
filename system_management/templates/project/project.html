@@ -14,11 +14,13 @@
 <a href="{% url 'project:edit' project.id %}" class="py-4 px-8 bg-sky-600 text-white  inline-block">Edit</a>
 <a href="{% url 'project:delete' project.id %}" class="py-4 px-8 bg-red-600 text-white  inline-block">Delete</a>
 
+<h2 class="mt-6 text-3xl">Todo lists</h2>
+
 <div class="mt-6 grid grid-cols-4 gap-4">
     {% for todolist in project.todolists.all %}
     <div class="bg-slate-200 p-6 ">
         <a href="{% url 'todolist:todolist' project.id todolist.id %}">
-            <h2 class="text-xl">{{ todolist.name }}</h2>
+            <h3 class="text-xl">{{ todolist.name }}</h3>
             <p class="text-sm text-slate-600"> 
                 {{ todolist.description }}
             </p>
@@ -26,5 +28,15 @@
     </div>
     {% endfor %}
 </div>
+<h2 class="mt-6 text-3xl">Files</h2>
+<div class="mt-6 grid grid-cols-4 gap-4">
+    {% for projectfile in project.files.all %}
+    <div class="bg-slate-200 p-6 ">
+            <h3 class="text-xl">{{ projectfile.name }}</h3>
+            <a href="{{ projectfile.attachement.url }}" target="_blank" class="text-sm text-slate-600"> 
+                Download Files
+            </a>
+    </div>
+    {% endfor %}
 
 {% endblock %}
