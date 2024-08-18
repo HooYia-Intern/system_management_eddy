@@ -29,6 +29,9 @@
     {% endfor %}
 </div>
 <h2 class="mt-6 text-3xl">Files</h2>
+
+<a href="{% url 'project:upload_file' project.id %}" class="py-4 mt-6 px-8 bg-slate-600 text-white rounded-2xl inline-block">Upload file</a>
+
 <div class="mt-6 grid grid-cols-4 gap-4">
     {% for projectfile in project.files.all %}
     <div class="bg-slate-200 p-6 ">
@@ -38,5 +41,8 @@
             </a>
     </div>
     {% endfor %}
-
+</div>
+<h2 class="mt-6 text-3xl">Notes</h2>
+<a href="{% url 'project:add_note' project.id %}" class="py-4 mt-6 px-8 bg-slate-600 text-white rounded-2xl inline-block">Add notes</a>
+    
 {% endblock %}

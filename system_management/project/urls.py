@@ -1,6 +1,6 @@
 from django.urls import path
 
-from . import views
+from .import views
 
 app_name = 'project'
 
@@ -10,7 +10,9 @@ urlpatterns = [
     path('<uuid:pk>/', views.project, name='project'),
     path('<uuid:pk>/edit/', views.edit, name='edit'),
     path('<uuid:pk>/delete/', views.delete, name='delete'),
-    path('<uuid:pk>/upload_files/', views.upload_file, name='upload_file'),
+    path('<uuid:project_id>/upload_files/', views.upload_file, name='upload_file'),
+    path('<uuid:project_id>/add_note/', views.add_note, name='add_note'),
+
     
 ]
 
